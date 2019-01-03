@@ -1,0 +1,107 @@
+@media only screen and (min-width: 992px) {
+  .menu-button {
+    display: none; }
+
+  nav.navbar .nav-link {
+    position: relative; }
+    nav.navbar .nav-link:after {
+      content: '';
+      position: absolute;
+      border-bottom: 0;
+      bottom: -18px;
+      left: 4px;
+      width: 0%;
+      border-bottom: 3px solid #f96314;
+      transition: 0.2s; }
+    nav.navbar .nav-link:hover:after, nav.navbar .nav-link.active:after {
+      width: 100%; }
+
+  .main-menu {
+    position: relative;
+    top: inherit;
+    opacity: 1;
+    z-index: 1000;
+    display: block; }
+
+  section.main-banner .banner-text-container {
+    margin-top: 7rem;
+    margin-bottom: 7rem; }
+  section.main-banner h1 {
+    font-size: 2.5rem; }
+
+  section.features .img-container {
+    left: -5rem;
+    position: absolute; }
+  section.features .feature-text {
+    padding-left: 0; }
+  section.features .p-5 {
+    padding: 3rem !important; }
+
+  section.how-it-works .how-item.pt-5 {
+    padding-top: 3rem !important; }
+  section.how-it-works .easy-share {
+    background-position: center center;
+    background-size: contain; }
+    section.how-it-works .easy-share .how-item {
+      margin-top: 15rem;
+      margin-bottom: 4rem; }
+
+  section.why-suncash {
+    padding-bottom: 8rem; }
+
+  section.faq .tab-content {
+    margin-top: 2rem; }
+  section.faq .nav-border-bottom {
+    border-bottom: 1px solid #e8e8e8; }
+  section.faq .nav-tabs .nav-link {
+    padding-top: inherit; }
+
+  .nav-link {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem; }
+    .nav-link.mysuncash-link {
+      margin-left: 2rem; }
+
+  section.terms .card {
+    padding: 5rem; }
+
+  section .header-block {
+    margin-top: 9rem; }
+    section .header-block p {
+      width: 50%; }
+  section .banner-text-container p {
+    width: 55%; }
+  section .large-text {
+    font-size: 1.8rem; }
+
+  footer .text-right {
+    text-align: right !important; }
+  footer .text-left {
+    text-align: left !important; }
+    footer .text-left span {
+      width: auto !important; } }
+@media (max-width: 991.98px) {
+  .main-menu {
+    position: absolute;
+    background-color: #fff;
+    overflow: hidden;
+    z-index: -1;
+    top: -10px;
+    transition: all 0.5s ease;
+    height: 0vh;
+    width: 100%;
+    left: 0; }
+    .main-menu.open {
+      height: 100vh;
+      z-index: 1000;
+      top: 75px; }
+    .main-menu .nav-link {
+      padding: 1rem; }
+
+  nav.navbar .nav-link {
+    color: #080808; }
+    nav.navbar .nav-link.active, nav.navbar .nav-link:hover {
+      background-color: #fc6414;
+      color: #fff; } }
+
+/*# sourceMappingURL=responsive.css.map */

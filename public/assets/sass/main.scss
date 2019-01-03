@@ -1,0 +1,896 @@
+$rubik: "Rubik", sans-serif;
+$primary: #583C9A;
+$secondary: #DB4C65;
+$tertiary: #70C663;
+$dark: #414143;
+$light: #fff;
+
+@import url("fonts.css");
+body {
+	-webkit-font-smoothing: antialiased !important;
+	font-family: $rubik;
+	font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5em;
+  background-color: #F6F6F6;
+}
+
+.container {
+  max-width: 1050px;
+}
+
+nav.main-nav {
+	background-color: $primary;
+	padding: 0.5rem 0;
+	min-height: 60px;
+	align-items: center;
+
+	.icon {
+		width: 1.75rem;
+    height: 1.75rem;
+	}
+}
+
+.icon {
+	&.search {
+		width: 1.75rem;
+    height: 1.75rem;
+    margin: 0.9rem 0; 
+    cursor: pointer;
+	}
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.subnav {
+	background-color: $light;
+	width: 100%;
+
+	.nav-link {
+    padding: 1.2rem 0; 
+    font-size: 1.05rem;
+    color: $dark;
+    position: relative;
+    width: fit-content;
+
+    &:after {
+	    content: '';
+	    position: absolute;
+	    border-bottom: 0;
+      bottom: 0;
+	    left: 0;
+	    width: 0%;
+	    border-bottom: 3px solid $primary;
+	    transition: 0.2s;
+		}
+
+		&:hover, &.active {
+			color: $primary;
+		}
+
+		&:hover:after,
+		&.active:after {
+		  width: 100%;
+		}
+	}
+}
+
+.header-logo {
+	width: 140px;
+}
+
+.user-image-container {
+	overflow: hidden;
+	border-radius: 100%;
+	width: 3rem;
+	height: 3rem;
+
+	.user-image {
+		width: 100%;
+	}
+}
+
+$promoImage: 20%;
+$promoText: 55%;
+$promoImageText: $promoImage + $promoText;
+$promoButton: 100% - $promoImageText;
+
+.main {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+
+	.page-title, .section-title {
+		font-weight: 400;
+		color: $dark;
+		font-size: 2rem;
+	}
+
+	.card {
+		border-radius: 9px;
+		// padding: 1.5rem;
+
+		&.with-boxshadow {
+			border: none;
+			background: #FFFFFF;
+			box-shadow: 0 1px 2px 0 rgba(194,194,194,0.50);
+		}
+
+		&.promo-card {
+
+			background-image: linear-gradient(90deg, #FF3960 1%, #70C663 27%, #FFC64B 49%, #5279FF 67%, #A563E7 92%);
+			padding-top: 0.35rem;
+			overflow: hidden;
+
+			> div {
+				border-radius: 10px;
+				padding: 2rem;
+				background-image: -webkit-linear-gradient(140deg, #E94E60 0%, #583C9A 100%);
+				background-image: -o-linear-gradient(140deg, #E94E60 0%, #583C9A 100%);
+				background-image: linear-gradient(230deg, #E94E60 0%, #583C9A 100%);
+			}
+
+			.promo-image {
+				width: $promoImage;
+				margin-right: 2rem;
+
+				img {
+					height: auto;
+					width: 100%;
+				}
+			}
+
+			.promo-text {
+				color: $light;
+				width: $promoText;
+
+				.label {
+					font-size: 1.75rem;
+					font-weight: 600;
+					margin-bottom: 0.5rem;
+				}
+
+				.data {
+					font-size: 1.2rem;
+				}
+			}
+
+			.btn {
+				width: $promoButton;
+				height: 3.5rem!important;
+				color: $secondary;
+				font-weight: 500;
+			}
+		}
+
+		&.registration-card {
+	    // padding: 3rem 4rem;
+
+	    .card-title {
+		    padding: 3rem 4rem 1rem 4rem;
+	    }
+
+	    form {
+		    padding: 1rem 4rem 2rem 4rem;
+	    }
+
+	    .agreement {
+		    padding: 2rem 4rem 2rem 4rem;
+
+	    	p {
+	    		font-size: 0.9rem;
+	    	}
+
+	    	.custom-radio-btn {
+	    		padding-top: 3rem; 
+	    		p {
+		    		font-size: 1rem;
+		    		font-weight: 500;
+	    		}
+	    	}
+	    }
+		}
+	}
+}
+
+.custom-radio-btn {
+
+	.content {
+	  display: inline-block;
+	  position: relative;
+	  padding-left: 35px;
+	  margin-bottom: 12px;
+	  margin-right: 1rem;
+	  cursor: pointer;
+	  font-size: 1rem;
+	  -webkit-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  user-select: none;
+	}
+
+	/* Hide the browser's default radio button */
+	.content input {
+	  position: absolute;
+	  opacity: 0;
+	  cursor: pointer;
+	}
+
+	/* Create a custom radio button */
+	.checkmark {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  height: 24px;
+	  width: 24px;
+	  background-color: #eee;
+	  border-radius: 50%;
+	}
+
+	/* On mouse-over, add a grey background color */
+	.content:hover input ~ .checkmark {
+	  background-color: #ccc;
+	}
+
+	/* When the radio button is checked, add a blue background */
+	.content input:checked ~ .checkmark {
+	  background-color: $tertiary;
+	}
+
+	/* Create the indicator (the dot/circle - hidden when not checked) */
+	.checkmark:after {
+	  content: "";
+	  position: absolute;
+	  display: none;
+	}
+
+	/* Show the indicator (dot/circle) when checked */
+	.content input:checked ~ .checkmark:after {
+	  display: block;
+	}
+
+	/* Style the indicator (dot/circle) */
+	.content .checkmark:after {
+	 	top: 6px;
+    left: 6px;
+    width: 12px;
+    height: 12px;
+		border-radius: 50%;
+		background: white;
+	}
+}
+
+.info {
+	padding: 1.5rem;
+	border-bottom: 1px solid #F6F6F6;
+
+	.label {
+		margin-bottom: 1rem;
+	}
+
+	.data {
+		font-size: 2.5rem;
+		font-weight: 300;
+	}
+}
+
+.offer {
+	padding: 1.5rem;
+	// border-bottom: 1px solid #F6F6F6;
+
+	.label {
+		margin-bottom: 1rem;
+		font-weight: 500;
+		text-align: center;
+	}
+
+	.data {
+		font-size: 1rem;
+
+		.offer-logo {
+			text-align: center;
+			margin-top: 1.25rem;
+			margin-bottom: 1rem;
+		}
+
+		.btn {
+			margin-top: 2.5rem;
+			min-height: 4rem;
+		}
+	}
+}
+
+.btn {
+	min-height: 3rem;
+
+	&:focus {
+		outline: none!important;
+		box-shadow: none!important;
+		border: none;
+	}
+
+	&.form-btn {
+		min-width: 20rem;
+		min-height: 4rem;
+	}
+
+	&.btn-primary {
+		background-color: $primary!important;
+		border-color: $primary!important;
+		color: $light;
+
+		&:hover {
+			background-color: rgba($primary, 0.9)!important;
+			border-color: rgba($primary, 0.9)!important;
+		}
+	}
+
+	&.btn-tertiary {
+		background-color: $tertiary!important;
+		border-color: $tertiary!important;
+		color: $light;
+
+		&:hover {
+			background-color: rgba($tertiary, 0.9)!important;
+			border-color: rgba($tertiary, 0.9)!important;
+		}
+	}
+
+	&.btn-outline-primary {
+		border-color: $primary!important;
+		color: $primary!important;
+
+		&:hover {
+			color: $light!important;
+			background-color: $primary!important;
+			border-color: rgba($primary, 0.9)!important;
+		}
+	}
+}
+
+.text-primary {
+	color: $primary!important;
+}
+
+.text-link {
+	font-weight: 500;
+
+	&.text-primary {
+		&:hover {
+			color: rgba($primary, 0.9)!important;
+			text-decoration: none;
+		}
+	}
+}
+
+.align-self-stretch {
+	.card {
+		height: 100%;
+	}
+}
+
+.table-title {
+	padding: 2.5rem;
+	border-bottom: 1px solid #F6F6F6;
+
+	.title {
+		font-size: 1.8rem;
+		color: #414143;
+	}
+}
+
+.card-title {
+	margin-bottom: 3rem;
+
+	.title {
+		font-size: 1.8rem;
+		color: #414143;
+		display: block;
+		margin-bottom: 1rem;
+	}
+
+	.description {
+		font-size: 0.9rem;
+	}
+}
+
+.table-footer {
+	padding: 2rem 2.5rem;
+
+	.text-link {
+		font-weight: 400;
+		font-size: 1.1rem;
+	}
+
+	.sep {
+		margin-left: 1rem;
+		margin-right: 1rem;
+		font-size: 1.75rem;
+		color: #F6F6F6;
+		font-weight: 400;
+		vertical-align: middle;
+	}
+}
+
+.table {
+	margin-bottom: 0;
+
+	thead {
+		th {
+			padding: 0.75rem 2.5rem;
+			font-weight: 400;
+			color: #8C8C8C;
+			border: none;
+		}
+	}
+
+	tbody {
+		td {
+			padding: 1rem 2.5rem;
+			border: none;
+			font-size: 1.2rem;
+
+			&.amount {
+				font-weight: 500;
+			}
+		}
+
+		tr {
+			&:nth-child(odd) {
+				background-color: #F6F6F6;
+			}
+		}
+	}
+}
+
+#viacarte-offers-tab {
+	border: none;
+
+	.nav-item {
+		.nav-link {
+			padding: 2rem;
+			font-size: 1.1rem;
+			background-color: #E9E9E9;
+			border-radius: 0;
+			font-weight: 400;
+			border: none;
+			color: #8C8C8C;
+
+			&.active {
+				background-color: transparent;
+				font-weight: 500;
+				color: $primary;
+			}
+		}
+	}
+}
+
+#viacarte-offers-tab-content {
+	padding: 2rem;
+}
+
+.tab-content {
+	.item-block {
+		background-color: #F9F9F9;
+		padding: 1rem;
+		margin-bottom: 1rem;
+
+		> div {
+			margin-bottom: 1rem;
+		}
+
+		.logo {
+			padding: 1rem;
+			width: 15%;
+			margin-right: 1rem;
+			text-align: center;
+
+			img {
+				width: 80%;
+			}
+		}
+
+		.label {
+			color: #414143;
+		}
+
+		.data {
+			color: #BABABA;
+			font-size: 1.1rem;
+			margin-top: 0.5rem;
+		}
+
+		.item-text {
+			width: 50%;
+			margin-right: 1rem;
+
+			.label {
+				font-size: 1.2rem;
+				width: 90%;
+				line-height: 1.4;
+			}
+		}
+
+		.item-expires {
+			width: 15%;
+
+			.label {
+				font-size: 1.1rem;
+				text-transform: uppercase;
+			}
+		}
+
+		.btn {
+	    width: 20%;
+	    height: 3.5rem !important;
+	    font-weight: 500;
+		}
+	}
+}
+
+.pagination-footer {
+
+	.page-link {
+		border-radius: none!important;
+		background-color: transparent!important;
+		border: none;
+		color: #BABABA;
+		font-size: 1.35rem;
+	}
+
+	.page-item {
+		&.active {
+			.page-link {
+				color: $primary;
+			}
+		}
+	}
+}
+
+.last-login-logged {
+	background-color: #4D4D4D;
+	color: $light;
+	padding: 2rem;
+	font-size: 1.1rem;
+	margin-top: 3rem;
+
+	.label {
+		margin-right: 0.5rem;
+	}
+
+	.data {
+		font-weight: 500;
+	}
+}
+
+footer {
+	padding: 2rem 0;
+	background-color: #fff;
+
+	span {
+		color: #808080;
+		text-transform: uppercase;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	ul {
+		margin-top: 1.5rem;
+		margin-bottom: 4rem;
+		list-style-type: none;
+		padding: 0;
+
+		li {
+			a {
+				color: $primary;
+				text-decoration: none;
+
+				&:hover {
+					color: rgba($primary, 0.9);
+					text-decoration: none;
+				}
+			}
+
+			margin-bottom: 1rem;
+		}
+	}
+
+	.copyright {
+		color: #808080;
+		font-size: 0.8rem;
+	}
+}
+
+form {
+	label {
+		font-size: 0.8rem;
+
+		&[for="lname"] {
+			opacity: 0;
+		}
+	}
+
+	.note {
+		color: #9B9B9B;
+		font-size: 0.8rem;
+		font-style: italic;
+	}
+
+	.title {
+		font-size: 1.3rem;
+		font-weight: 500;
+		margin-bottom: 1rem;
+		color: $dark;
+	}
+
+	input, select {
+		min-height: 3rem!important;
+		height: 3rem!important;
+		background-color: #F6F6F6!important;
+		border-color: #E6E6E6!important;
+
+		&:focus {
+			box-shadow: none!important;
+			background-color: $light!important;
+			outline: 0;
+			border-color: $primary!important;
+		}
+
+		&.is-invalid {
+			border-color: #F29C9C!important;
+			background-color: #FCF5F5!important;
+			color: #F29C9C;
+		}
+
+		// &[value=""] {
+		// 	border-color: $dark!important;
+		// }
+	}
+
+	.invalid-feedback {
+		font-weight: 500;
+		font-style: italic;
+		color: #F29C9C;
+	}
+
+	.with-icon {
+		position: relative;
+
+		.icon {
+			position: absolute;
+			right: 1rem;
+			top: 2.75rem;
+			font-size: 1.1rem;
+		}
+	}
+}
+
+
+#cardsUI {
+	&.carousel, .row {
+		height: 100%;
+	}
+
+	.row {
+		margin: 0;
+	}
+
+	.carousel-indicators {
+    // transform: rotate(90deg);
+    top: 2rem;
+    width: 100%;
+    margin: 0;
+    bottom: unset;
+    display: block;
+
+		li {
+			background-color: #D8D8D8;
+			width: 10px;
+			height: 10px;
+			border-radius: 100%;
+			margin: 0 auto;
+			display: list-item!important;
+			margin-bottom: 16px;
+			transition: transform 250ms ease-in-out;
+
+			&.active {
+				background-color: $primary;
+		    transform: scale(1.5);
+			}
+		}
+	}
+
+	.btn {
+		position: absolute;
+		bottom: 1rem;
+		left: 50%;
+		border-radius: 100%;
+		width: 3rem;
+		height: 3rem;
+		-webkit-transform: translateX(-50%);
+		   -moz-transform: translateX(-50%);
+		    -ms-transform: translateX(-50%);
+		     -o-transform: translateX(-50%);
+		        transform: translateX(-50%);
+		        font-size: 2rem;
+		        text-align: center;
+		        padding: 0;
+	}
+
+	.slider-indicator {
+		max-width: 15%;
+	}
+
+	.card-expiry-date,
+	.card-payment-due {
+		width: 50%;
+		margin-top: 0.5rem;
+
+		> div {
+			display: inline-block;
+		}
+
+		.label {
+			color: rgba(#4A4A4A, 0.7);
+			font-size: 0.7rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			margin-right: 0.5rem;
+		}
+
+		.data {
+			color: #4A4A4A;
+		}
+	}
+
+	.option {
+		border-top: 1px solid #F6F6F6;
+	}
+
+	.border-right {
+		border-right: 1px solid #F6F6F6!important;
+	}
+
+	.card-container {
+		padding: 2rem 3rem 1.5rem 3rem;
+		// width: 80%!important;
+		// margin: 0 auto;
+		// margin-top: 2rem;
+
+		// & ~ .dflex {
+		// width: 80%!important;
+		// }
+	}
+
+	.option {
+		padding: 1rem 1.5rem;
+		position: relative;
+
+		.text-link {
+			text-decoration: none;
+
+			&.card-detail {
+				color: $dark;
+				margin-right: 0.5rem;
+
+				&:hover {
+					color: rgba($dark, 0.8);
+				}
+			}
+
+			&.delete-card {
+				color: #FF3960;
+
+				&:hover {
+					color: rgba(#FF3960, 0.8);
+				}
+			}
+		}
+	}
+}
+
+.toggle {
+  cursor: pointer;
+  margin-bottom: 0;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+	input {
+    display: none;
+
+    &[type=checkbox]:checked + span{
+			background-color: #A2CD61;
+		}
+
+		&[type=checkbox]:checked + span::before{
+			transform: translateX(1.6rem);
+			transition: transform 250ms ease;
+		}
+	}
+
+	span {
+    background-color: #dedede;
+    // width: 3.5em;
+    // height: 1.75em;
+    width: 3.6rem;
+    height: 2rem;
+    border-radius: 1.75em;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+	    content: '';
+	    // height: 1.5em;
+	    // width: 1.5em;
+	    width: 1.6rem;
+	    height: 1.6rem;
+	    top: 0.2em;
+	    left: 0.15em;
+	    border-radius: 50%;
+	    background-color: #fefefe;
+	    position: absolute;
+	    box-shadow: 0 0 2px #dedede;
+	    transition: transform 250ms ease;
+		}
+	}
+
+	
+}
+
+.datepickers-container {
+	.datepicker--day-name, .datepicker--cell.-current- {
+		color: $primary;
+	}
+
+	.datepicker--cell.-current- {
+		font-weight: 600!important;
+	}
+
+	.datepicker--cell.-selected-, .datepicker--cell.-selected-.-current- {
+		background-color: $primary;
+		color: $light;
+	}
+	
+}
+
+/**
+ * FilePond Custom Styles
+ */
+
+.filepond--root {
+	margin-top: 1.25rem;
+}
+.filepond--drop-label {
+	color: #4c4e53;
+}
+
+.filepond--label-action {
+	text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+	border-radius: 2em;
+	background-color: #edf0f4;
+	height: 1em;
+}
+
+.filepond--item-panel {
+	background-color: #595e68;
+}
+
+.filepond--drip-blob {
+	background-color: #7f8a9a;
+}
+
+span.filepond--label-action {
+	background-color: $tertiary;
+	text-decoration: none;
+	padding: 0.25rem 0.75rem;
+	border-radius: 3px;
+	margin-left: 0.25rem;
+	color: $light;
+}
